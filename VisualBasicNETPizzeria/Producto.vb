@@ -1,5 +1,5 @@
 ﻿Namespace Clases
-    Public MustInherit Class Producto
+    Public Class Producto
         Protected c_nombre As String
         Protected c_precio As Decimal
 
