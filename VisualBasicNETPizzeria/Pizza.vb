@@ -1,12 +1,18 @@
 ﻿Namespace Clases
     Public NotInheritable Class Pizza
         Inherits Producto
-        Implements IPizza
 
         Public ReadOnly Property Tamanio() As String
         Public ReadOnly Property Tipo() As String
         Public ReadOnly Property Ingredientes() As ArrayList
 
+        ''' <summary>
+        ''' Constructor para una pizza que no recibe ingredientes
+        ''' </summary>
+        ''' <param name="c_nombre"></param>
+        ''' <param name="c_precio"></param>
+        ''' <param name="tamanio"></param>
+        ''' <param name="tipo"></param>
         Sub New(
                ByVal c_nombre As String,
                ByVal c_precio As Decimal,
@@ -15,11 +21,19 @@
                )
             MyBase.New(c_nombre, c_precio)
 
-            Me.Tamanio = [Enum].GetName(GetType(IPizza.TAMANIO), tamanio).ToLowerInvariant
-            Me.Tipo = "A la " & [Enum].GetName(GetType(IPizza.TIPO), tipo).ToLowerInvariant
+            Me.Tamanio = tamanio
+            Me.Tipo = "A la " & tipo
             Ingredientes = Nothing
         End Sub
 
+        ''' <summary>
+        ''' Constructor para una pizza que recibe ingredientes
+        ''' </summary>
+        ''' <param name="c_nombre"></param>
+        ''' <param name="c_precio"></param>
+        ''' <param name="tamanio"></param>
+        ''' <param name="tipo"></param>
+        ''' <param name="ingredientes"></param>
         Sub New(
                ByVal c_nombre As String,
                ByVal c_precio As Decimal,
@@ -29,8 +43,8 @@
                )
             MyBase.New(c_nombre, c_precio)
 
-            Me.Tamanio = [Enum].GetName(GetType(IPizza.TAMANIO), tamanio).ToLowerInvariant
-            Me.Tipo = "A la " & [Enum].GetName(GetType(IPizza.TIPO), tipo).ToLowerInvariant
+            Me.Tamanio = tamanio
+            Me.Tipo = "A la " & tipo
             Utilitaria.ConvertirArrayDeObjetosHaciaArrayList(ingredientes, Me.Ingredientes)
         End Sub
 

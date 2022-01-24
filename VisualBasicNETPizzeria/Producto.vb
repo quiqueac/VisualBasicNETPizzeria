@@ -3,7 +3,10 @@
         Protected c_nombre As String
         Protected c_precio As Decimal
 
-        Sub New(ByVal c_nombre As String, ByVal c_precio As Decimal)
+        Sub New(
+               ByVal c_nombre As String,
+               ByVal c_precio As Decimal
+               )
             Me.c_nombre = c_nombre
             Me.c_precio = c_precio
         End Sub
@@ -17,7 +20,7 @@
             End Set
         End Property
 
-        Public Overridable Property Precio() As Decimal
+        Public Overridable Property Precio As Decimal
             Get
                 Return c_precio
             End Get

@@ -9,6 +9,12 @@
         Protected c_precio_subtotal As Decimal
         Protected c_productos As ArrayList
 
+        ''' <summary>
+        ''' Constructor que recibe la fecha y hora de entrega
+        ''' </summary>
+        ''' <param name="c_fecha_hora_entrega"></param>
+        ''' <param name="c_nombre_cliente"></param>
+        ''' <param name="array_productos"></param>
         Public Sub New(
                       ByVal c_fecha_hora_entrega As Date,
                       ByVal c_nombre_cliente As String,
@@ -16,6 +22,22 @@
                       )
             MyBase.New()
             Me.c_fecha_hora_entrega = c_fecha_hora_entrega
+            Me.c_nombre_cliente = c_nombre_cliente
+            c_precio_total = 0@
+            Utilitaria.ConvertirArrayDeObjetosHaciaArrayList(array_productos, c_productos)
+        End Sub
+
+        ''' <summary>
+        ''' Constructor que no recibe la fecha y hora de entrega
+        ''' </summary>
+        ''' <param name="c_nombre_cliente"></param>
+        ''' <param name="array_productos"></param>
+        Public Sub New(
+                      ByVal c_nombre_cliente As String,
+                      ByVal ParamArray array_productos As Producto()
+                      )
+            MyBase.New()
+            c_fecha_hora_entrega = Nothing
             Me.c_nombre_cliente = c_nombre_cliente
             c_precio_total = 0@
             Utilitaria.ConvertirArrayDeObjetosHaciaArrayList(array_productos, c_productos)
@@ -102,9 +124,11 @@
             Throw New NotImplementedException()
         End Sub
 
+
         ''' <summary>
         ''' Pedido listo para cobrar
         ''' </summary>
+        ''' <param name="c_fecha_entrega"></param>
         Public Sub Terminar(ByVal c_fecha_entrega As Date) Implements IPedido.Terminar
             c_fecha_hora_entrega = c_fecha_hora_entrega
         End Sub

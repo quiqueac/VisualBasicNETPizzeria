@@ -5,12 +5,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2517B27F-D951-4EB1-AE93-4EB9BE387728}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <StartupObject>VisualBasicNETPizzeria.Module1</StartupObject>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>VisualBasicNETPizzeria.FormInicio</StartupObject>
     <RootNamespace>VisualBasicNETPizzeria</RootNamespace>
     <AssemblyName>VisualBasicNETPizzeria</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>Console</MyType>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -48,9 +48,12 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.27.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -69,10 +72,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BD.vb" />
+    <Compile Include="DialogFormInicioConectarBD.Designer.vb">
+      <DependentUpon>DialogFormInicioConectarBD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DialogFormInicioConectarBD.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Documento.vb" />
+    <Compile Include="FormInicio.Designer.vb">
+      <DependentUpon>FormInicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="IDocumento.vb" />
     <Compile Include="IPedido.vb" />
-    <Compile Include="IPizza.vb" />
     <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -95,6 +110,12 @@
     <Compile Include="Utilitaria.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DialogFormInicioConectarBD.resx">
+      <DependentUpon>DialogFormInicioConectarBD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInicio.resx">
+      <DependentUpon>FormInicio.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

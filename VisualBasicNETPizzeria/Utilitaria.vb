@@ -10,10 +10,6 @@
                                                        ByVal arreglo_objetos() As Object,
                                                        ByRef array_list As ArrayList
                                                        )
-            ' Funcionamiento: 1. Se calcula el tamanio del array de objetos y se guarda en 'numero_objetos'
-            '                 2. Se inicializa el ArrayList con la dimension calculada en 'numero_objetos'
-            '                 3. Se usa un For Each para guardar en el ArrayList los objetos
-
             Dim numero_objetos As Byte = UBound(arreglo_objetos) + 1
 
             If (Not numero_objetos = -1) Then
